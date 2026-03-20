@@ -1,0 +1,173 @@
+/* CSS Variables */
+:root {
+  --bg: #060a06;
+  --bg-card: #0b110b;
+  --green: #0aff64;
+  --green-dim: rgba(10, 255, 100, 0.26);
+  --green-faint: rgba(10, 255, 100, 0.07);
+  --text: #d4f5d4;
+  --text-dim: #6a9a6a;
+  --text-muted: #2e4e2e;
+  --border: rgba(10, 255, 100, 0.1);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: var(--text);
+  font-family: var(--font-barlow), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.mono {
+  font-family: var(--font-share-tech-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--green-faint);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green-dim);
+}
+
+/* Cursor Glow */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(10, 255, 100, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px var(--green)); }
+  50% { opacity: 0.3; filter: drop-shadow(0 0 0px var(--green)); }
+}
+
+@keyframes dash {
+  from { stroke-dashoffset: 820; }
+  to { stroke-dashoffset: var(--dashoffset); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-fadeup {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Chamfered Buttons */
+.btn-rep {
+  position: relative;
+  padding: 14px 28px;
+  font-family: var(--font-share-tech-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  clip-path: polygon(0% 0%, 90% 0%, 100% 25%, 100% 100%, 10% 100%, 0% 75%);
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #000;
+  box-shadow: 0 0 15px rgba(10, 255, 100, 0.4);
+}
+
+.btn-primary:hover {
+  background: #00ff55;
+  box-shadow: 0 0 25px rgba(10, 255, 100, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+  clip-path: none; /* User specified chamfer for "all buttons" but usually outline ones are clean. Wait, I'll follow "All buttons" rule. */
+  clip-path: polygon(0% 0%, 90% 0%, 100% 25%, 100% 100%, 10% 100%, 0% 75%);
+}
+
+.btn-outline:hover {
+  background: var(--green-faint);
+  transform: translateY(-1px);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-label {
+  font-family: var(--font-share-tech-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--green);
+  margin-bottom: 24px;
+  display: block;
+}
+
+/* Glass Card */
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.glow-text {
+  text-shadow: 0 0 12px rgba(10, 255, 100, 0.5);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}

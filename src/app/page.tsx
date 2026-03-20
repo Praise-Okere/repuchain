@@ -76,10 +76,11 @@ export default function RepChainLanding() {
 
       <main style={{ paddingTop: '64px' }}>
         {/* HERO SECTION */}
-        <section style={{ minHeight: 'calc(100vh - 64px)', padding: '100px 0', borderBottom: '1px solid var(--border)', position: 'relative' }}>
-          <div className="container" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 400px', gap: '80px', alignItems: 'center' }}>
+        <section style={{ minHeight: 'calc(100vh - 64px)', padding: '60px 0', borderBottom: '1px solid var(--border)', position: 'relative', display: 'flex', alignItems: 'center' }}>
+          <div className="container hero-container" style={{ display: 'grid', gridTemplateColumns: '1fr', gridAutoFlow: 'row', gap: '60px', alignItems: 'center' }}>
             {/* HERO LEFT */}
-            <div className="animate-fadeup">
+            <div className="animate-fadeup hero-left-align" style={{ textAlign: 'center', margin: '0 auto', maxWidth: '1000px' }}>
+              <div className="hero-left">
               <span className="section-label">CROSS-CHAIN IDENTITY PROTOCOL</span>
               <h1 style={{ fontSize: 'clamp(48px, 8vw, 88px)', lineHeight: '0.9', marginBottom: '24px' }}>
                 Your Reputation <br />
@@ -89,14 +90,14 @@ export default function RepChainLanding() {
                 Every transaction, governance vote, and yield farming session counts toward your universal trust score in the decentralized web.
               </p>
               
-              <div style={{ display: 'flex', gap: '16px', marginBottom: '64px' }}>
-                <button className="btn-rep btn-primary">Scan My Wallet →</button>
-                <button className="btn-rep btn-outline">View Sample Profile</button>
+              <div style={{ display: 'flex', gap: '16px', marginBottom: '64px', justifyContent: 'inherit', flexWrap: 'wrap' }}>
+                <button className="btn-rep btn-primary" style={{ flex: '1 1 auto', minWidth: '200px' }}>Scan My Wallet →</button>
+                <button className="btn-rep btn-outline" style={{ flex: '1 1 auto', minWidth: '200px' }}>View Sample Profile</button>
               </div>
 
-              <div style={{ 
+              <div className="stats-grid" style={{ 
                 display: 'grid', 
-                gridTemplateColumns: 'repeat(4, 1fr)', 
+                gridTemplateColumns: 'repeat(2, 1fr)', 
                 border: '1px solid var(--border)', 
                 background: 'rgba(10, 255, 100, 0.02)' 
               }}>
@@ -106,17 +107,20 @@ export default function RepChainLanding() {
                   { value: '99.7%', label: 'Sybil Accuracy' },
                   { value: '<0.3s', label: 'Query Latency' },
                 ].map((stat, i) => (
-                  <div key={i} style={{ 
+                  <div key={i} className="stats-cell" style={{ 
                     padding: '24px', 
-                    borderRight: i < 3 ? '1px solid var(--border)' : 'none',
+                    borderRight: '1px solid var(--border)',
+                    borderBottom: '1px solid var(--border)',
                     textAlign: 'center'
                   }}>
+
                     <div className="display" style={{ fontSize: '24px', color: 'var(--green)' }}>{stat.value}</div>
                     <div className="mono" style={{ fontSize: '8px', color: 'var(--text-muted)', marginTop: '4px' }}>{stat.label}</div>
                   </div>
                 ))}
               </div>
             </div>
+          </div>
 
             {/* HERO RIGHT (SCORE RING) */}
             <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
@@ -207,17 +211,17 @@ export default function RepChainLanding() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="container" style={{ padding: '100px 0', borderBottom: '1px solid var(--border)' }}>
+        <section className="container" style={{ padding: '80px 0', borderBottom: '1px solid var(--border)' }}>
           <span className="section-label">HOW IT WORKS</span>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0' }}>
+          <div className="how-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0' }}>
             {[
               { num: '01', title: 'Connect Wallet', desc: 'Link any EVM or Solana wallet in one click.' },
               { num: '02', title: 'Index Chains', desc: 'We scan all 14 chains for activity, DAOs, and history.' },
               { num: '03', title: 'Get Your Score', desc: 'Receive your universal reputation score in under a second.' },
             ].map((step, i) => (
-              <div key={i} style={{ 
+              <div key={i} className="step-cell" style={{ 
                 padding: '40px', 
-                borderRight: i < 2 ? '1px solid var(--border)' : 'none',
+                borderBottom: '1px solid var(--border)',
               }}>
                 <div className="mono" style={{ fontSize: '48px', color: 'var(--green-dim)', marginBottom: '24px' }}>{step.num}</div>
                 <h3 style={{ fontSize: '24px', color: 'var(--text)', marginBottom: '16px' }}>{step.title}</h3>
@@ -239,7 +243,7 @@ export default function RepChainLanding() {
               { label: 'Smart Contract Calls', val: 91, icon: '⟐' },
               { label: 'Wallet Age', val: 88, icon: '◷' },
             ].map((sig, i) => (
-              <div key={i} style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 60px', alignItems: 'center', gap: '40px' }}>
+              <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'center', gap: '20px' }}>
                 <div style={{ overflow: 'hidden' }}>
                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
                      <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
@@ -295,8 +299,8 @@ export default function RepChainLanding() {
         </section>
 
         {/* STATS BANNER */}
-        <section style={{ padding: '80px 0', borderBottom: '1px solid var(--border)', background: 'var(--green-faint)' }}>
-          <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', textAlign: 'center' }}>
+        <section style={{ padding: '60px 0', borderBottom: '1px solid var(--border)', background: 'var(--green-faint)' }}>
+          <div className="container banner-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px', textAlign: 'center' }}>
              {[
                { value: '2.4M+', label: 'Wallets Scored' },
                { value: '14', label: 'Chains Indexed' },
@@ -328,21 +332,6 @@ export default function RepChainLanding() {
         </section>
       </main>
 
-      <style jsx>{`
-        @keyframes blink {
-          0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px var(--green)); }
-          50% { opacity: 0.3; filter: drop-shadow(0 0 0px var(--green)); }
-        }
-        @media (max-width: 1100px) {
-          .container {
-            grid-template-columns: 1fr !important;
-            gap: 40px !important;
-          }
-          .nav-links {
-            display: none !important;
-          }
-        }
-      `}</style>
     </>
   );
 }

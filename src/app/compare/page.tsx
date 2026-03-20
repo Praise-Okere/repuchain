@@ -34,18 +34,18 @@ export default function ComparePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] px-8 pt-32 pb-20">
+    <div className="min-h-screen bg-[var(--color-bg-primary)] px-4 md:px-8 pt-32 pb-20">
       <nav className="fixed top-0 w-full z-50 glass-card !rounded-none border-t-0 border-x-0 bg-opacity-70 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-[var(--color-accent-teal)] rounded-lg flex items-center justify-center rotate-12">
                <Shield className="text-black w-5 h-5 -rotate-12" fill="currentColor" />
             </div>
             <span className="text-xl font-display font-bold text-white">RepuChain</span>
           </div>
-          <div className="flex items-center gap-4">
-             <button className="px-4 py-2 hover:bg-white/5 rounded-lg text-sm font-semibold transition-colors">Integrations</button>
-             <button className="px-4 py-2 bg-white text-black font-semibold rounded-full hover:bg-[var(--color-accent-teal)] transition-all transform hover:-translate-y-0.5 shadow-lg">New Comparison</button>
+          <div className="flex items-center gap-2 md:gap-4">
+             <button className="hidden sm:block px-4 py-2 hover:bg-white/5 rounded-lg text-sm font-semibold transition-colors">Integrations</button>
+             <button className="px-4 py-2 bg-white text-black text-xs md:text-sm font-semibold rounded-full hover:bg-[var(--color-accent-teal)] transition-all transform hover:-translate-y-0.5 shadow-lg">New Comparison</button>
           </div>
         </div>
       </nav>
@@ -60,8 +60,8 @@ export default function ComparePage() {
             <Scale className="w-3 h-3" />
             <span className="text-[10px] uppercase font-bold tracking-widest font-mono">Side-by-Side Analysis</span>
           </motion.div>
-          <h1 className="text-5xl font-display font-bold tracking-tight">Vetting Protocol Contributors</h1>
-          <p className="text-[var(--color-text-secondary)] text-lg">Compare reputation signals across multiple addresses for DAO whitelisting or credit assessment.</p>
+          <h1 className="text-3xl md:text-5xl font-display font-bold tracking-tight">Vetting Protocol Contributors</h1>
+          <p className="text-[var(--color-text-secondary)] text-base md:text-lg">Compare reputation signals across multiple addresses for DAO whitelisting or credit assessment.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 relative">

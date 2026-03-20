@@ -41,9 +41,9 @@ export default function DashboardPage() {
   const heatmapData = Array.from({ length: 364 }, () => Math.floor(Math.random() * 5));
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] flex">
+    <div className="min-h-screen bg-[var(--color-bg-primary)] flex flex-col lg:flex-row">
       {/* Sidebar Score Rail */}
-      <aside className="hidden lg:flex w-96 border-r border-white/5 flex-col fixed inset-y-0 left-0 bg-[var(--color-bg-secondary)]/30 backdrop-blur-xl z-20">
+      <aside className="w-full lg:w-96 border-b lg:border-r border-white/5 flex flex-col lg:fixed lg:inset-y-0 lg:left-0 bg-[var(--color-bg-secondary)]/30 backdrop-blur-xl z-20">
         <div className="p-8 border-b border-white/5 flex items-center justify-between">
            <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-[var(--color-accent-teal)] rounded-lg flex items-center justify-center rotate-12">
@@ -56,7 +56,7 @@ export default function DashboardPage() {
            </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-8 space-y-8 no-scrollbar">
+        <div className="lg:flex-1 overflow-y-auto p-6 md:p-8 space-y-8 no-scrollbar">
            <WalletCard address={walletAddress} score={82} chain="ethereum" />
 
            <div className="space-y-4">
@@ -91,10 +91,10 @@ export default function DashboardPage() {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 lg:pl-96 min-h-screen bg-[var(--color-bg-primary)]">
+      <main className="flex-1 lg:pl-96 min-h-screen bg-[var(--color-bg-primary)] w-full">
         {/* Top Navbar */}
-        <header className="h-20 border-b border-white/5 bg-[var(--color-bg-primary)]/80 backdrop-blur-md flex items-center justify-between px-8 sticky top-0 z-10">
-           <div className="flex items-center gap-6 flex-1 max-w-xl">
+        <header className="h-auto border-b border-white/5 bg-[var(--color-bg-primary)]/80 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between p-4 md:px-8 sticky top-0 z-10 gap-4">
+           <div className="flex items-center gap-6 w-full md:max-w-xl">
               <div className="relative w-full group">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-muted)] group-focus-within:text-[var(--color-accent-teal)] transition-colors" />
                 <input 
@@ -105,31 +105,33 @@ export default function DashboardPage() {
               </div>
            </div>
 
-           <div className="flex items-center gap-4">
-              <div className="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg">
+           <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg">
                  <div className="w-2 h-2 rounded-full bg-[var(--color-accent-teal)] animate-pulse" />
-                 <span className="text-xs font-mono font-bold uppercase tracking-wider">Mainnet</span>
+                 <span className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-wider">Mainnet</span>
               </div>
-              <button className="p-2.5 hover:bg-white/5 rounded-lg text-[var(--color-text-muted)] hover:text-white transition-colors relative">
-                 <Bell className="w-5 h-5" />
-                 <span className="absolute top-2 right-2 w-2 h-2 bg-[var(--color-accent-red)] rounded-full border-2 border-[var(--color-bg-primary)]" />
-              </button>
-              <button className="px-5 py-2.5 bg-[var(--color-accent-teal)] text-black font-bold rounded-xl text-sm flex items-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-[var(--color-accent-teal)]/10">
-                 <Wallet className="w-4 h-4" /> Connect Wallet
-              </button>
+              <div className="flex items-center gap-2">
+                <button className="p-2.5 hover:bg-white/5 rounded-lg text-[var(--color-text-muted)] hover:text-white transition-colors relative">
+                   <Bell className="w-5 h-5" />
+                   <span className="absolute top-2 right-2 w-2 h-2 bg-[var(--color-accent-red)] rounded-full border-2 border-[var(--color-bg-primary)]" />
+                </button>
+                <button className="px-5 py-2.5 bg-[var(--color-accent-teal)] text-black font-bold rounded-xl text-sm flex items-center gap-2 hover:scale-[1.02] transition-all shadow-lg shadow-[var(--color-accent-teal)]/10">
+                   <Wallet className="w-4 h-4" /> <span className="hidden xs:inline">Connect Wallet</span><span className="xs:hidden">Connect</span>
+                </button>
+              </div>
            </div>
         </header>
 
         {/* Dynamic Content */}
         <div className="p-8 max-w-7xl mx-auto space-y-8 pb-32">
            {/* Tab Selector */}
-           <div className="flex items-center gap-1 p-1 bg-white/[0.03] border border-white/5 rounded-xl w-fit">
+           <div className="flex items-center gap-1 p-1 bg-white/[0.03] border border-white/5 rounded-xl w-full overflow-x-auto no-scrollbar md:w-fit">
               {TABS.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={cn(
-                    "px-6 py-2.5 rounded-lg text-sm font-display font-semibold transition-all flex items-center gap-2",
+                    "px-6 py-2.5 rounded-lg text-sm font-display font-semibold transition-all flex items-center gap-2 shrink-0 md:shrink",
                     activeTab === tab.id 
                     ? "bg-white/10 text-[var(--color-accent-teal)] shadow-sm border border-white/5" 
                     : "text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] hover:bg-white/[0.02]"

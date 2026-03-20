@@ -20,16 +20,16 @@ export default function BadgePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] pt-32 pb-20 px-8">
+    <div className="min-h-screen bg-[var(--color-bg-primary)] pt-32 pb-20 px-4 md:px-8">
       <nav className="fixed top-0 w-full z-50 glass-card !rounded-none border-t-0 border-x-0 bg-opacity-70 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
              <div className="w-8 h-8 bg-[var(--color-accent-teal)] rounded-lg flex items-center justify-center rotate-12">
                 <ShieldCheck className="text-black w-5 h-5 -rotate-12" fill="currentColor" />
              </div>
              <span className="text-xl font-display font-bold text-white uppercase tracking-tighter">RepuChain</span>
           </div>
-          <button className="px-6 py-2 bg-white text-black font-bold rounded-full hover:bg-[var(--color-accent-teal)] transition-all">Connect Wallet</button>
+          <button className="px-4 md:px-6 py-2 bg-white text-black text-xs md:text-sm font-bold rounded-full hover:bg-[var(--color-accent-teal)] transition-all">Connect Wallet</button>
         </div>
       </nav>
 
@@ -44,8 +44,8 @@ export default function BadgePage() {
                 <div className="w-2 h-2 rounded-full bg-[var(--color-accent-teal)] animate-pulse" />
                 <span className="text-[10px] uppercase font-bold tracking-widest font-mono">Proof of Identity Protocol</span>
               </motion.div>
-              <h1 className="text-6xl font-display font-bold tracking-tight">Display Your <span className="text-[var(--color-accent-teal)]">Reputation</span> Anywhere.</h1>
-              <p className="text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-lg">Embed your institutional-grade reputation score in your DAO bio, project site, or social profiles with verifiable on-chain proofs.</p>
+              <h1 className="text-3xl md:text-6xl font-display font-bold tracking-tight">Display Your <span className="text-[var(--color-accent-teal)]">Reputation</span> Anywhere.</h1>
+              <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-lg">Embed your institutional-grade reputation score in your DAO bio, project site, or social profiles with verifiable on-chain proofs.</p>
            </div>
 
            <div className="space-y-6">
